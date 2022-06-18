@@ -1,0 +1,25 @@
+@import "../../styles/global.scss";
+
+.cardImg {
+  max-height: 150px;
+  max-width: 150px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.productCard {
+  min-height: 300px;
+  &:hover {
+    box-shadow: 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+  }
+}
+
+.commonBtn {
+  background-color: $skyBlue !important;
+  border: none !important;
+  color: $black !important;
+
+  &:hover {
+    background-color: $nevyBlue !important;
+  }
+}
