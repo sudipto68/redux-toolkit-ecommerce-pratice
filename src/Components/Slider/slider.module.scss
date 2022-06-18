@@ -1,0 +1,25 @@
+@import "../../styles//global.scss";
+
+.sliderItem {
+  height: 400px;
+  object-fit: cover;
+  img {
+    object-fit: cover;
+  }
+}
+
+.sliderBtn {
+  background-color: $primaryColor !important;
+  border: none !important;
+  color: $black !important;
+
+  &:hover {
+    background-color: $nevyBlue !important;
+  }
+}
+
+@media (max-width: $media-md) {
+  .sliderItem {
+    height: auto;
+  }
+}
