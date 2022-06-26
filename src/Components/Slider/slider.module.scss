@@ -21,5 +21,28 @@
 @media (max-width: $media-md) {
   .sliderItem {
     height: auto;
+
+    :global {
+      .carousel-caption {
+        top: 10% !important;
+      }
+
+      h1 {
+        font-size: 22px !important;
+        line-height: 24px !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: $media-lg) {
+  .sliderItem {
+    height: auto;
+
+    :global {
+      .carousel-caption {
+        top: 50% !important;
+      }
+    }
   }
 }

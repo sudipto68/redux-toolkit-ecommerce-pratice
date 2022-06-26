@@ -10,3 +10,22 @@
   gap: 40px;
   padding-top: 30px;
 }
+
+@media (max-width: $media-md) {
+  .productList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: $media-lg) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
