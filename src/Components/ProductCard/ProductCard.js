@@ -1,6 +1,6 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./productCard.module.scss";
 import { addToCart } from "../../Redux/features/Cart/CartSlice";
@@ -8,6 +8,12 @@ import { addToCart } from "../../Redux/features/Cart/CartSlice";
 const ProductCard = ({ product }) => {
   const title = product?.title.slice(0, 20);
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cart);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems)); //adding cart data to lcoal storaage
+  }, [cartItems]);
+
   return (
     <div>
       <Card

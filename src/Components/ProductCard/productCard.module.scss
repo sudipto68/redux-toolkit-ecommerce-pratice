@@ -10,20 +10,22 @@
 .productCard {
   position: relative;
   min-height: 300px;
+  transition: all 0.5s ease-out;
   &:hover {
-    box-shadow: 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    transform: scale(1.1);
+    transition: all 0.5s ease-in;
   }
 }
 
 .commonBtn {
-  background-color: $skyBlue !important;
+  background-color: $nevyBlue !important;
   border: none !important;
-  color: $black !important;
+  color: $white !important;
   position: absolute;
   bottom: 20px;
   right: 85px;
 
   &:hover {
-    background-color: $nevyBlue !important;
+    background-color: $skyBlue !important;
   }
 }

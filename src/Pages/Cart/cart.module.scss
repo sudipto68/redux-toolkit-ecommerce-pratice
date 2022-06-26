@@ -1,0 +1,32 @@
+@import "../../styles/global.scss";
+
+.cartCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 1px 1px 7px #d3d3d3;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.005);
+    transform: all 0.4s ease-in-out;
+  }
+
+  :global {
+    button {
+      background-color: $nevyBlue;
+      border: none;
+      color: $white;
+      padding: 0 10px;
+    }
+
+    .cartBtns {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+    }
+  }
+}

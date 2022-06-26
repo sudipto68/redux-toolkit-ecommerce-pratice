@@ -1,7 +1,7 @@
 @import "../../styles//global.scss";
 
 .sliderItem {
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   img {
     object-fit: cover;
@@ -12,6 +12,7 @@
   background-color: $primaryColor !important;
   border: none !important;
   color: $black !important;
+  padding: 10px 25px !important;
 
   &:hover {
     background-color: $nevyBlue !important;
@@ -44,6 +45,10 @@
   .sliderItem {
     height: auto;
 
+    img {
+      min-height: 300px;
+    }
+
     :global {
       .carousel-caption {
         top: 10% !important;
@@ -55,11 +60,23 @@
       }
     }
   }
+
+  :global {
+    .carousel-indicators {
+      button {
+        display: none;
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: $media-lg) {
   .sliderItem {
-    height: auto;
+    min-height: auto;
+
+    img {
+      min-height: 350px;
+    }
 
     :global {
       .carousel-caption {

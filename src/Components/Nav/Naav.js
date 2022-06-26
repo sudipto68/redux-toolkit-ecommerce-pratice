@@ -11,7 +11,7 @@ const Naav = () => {
       <Navbar expand="lg" className={styles.navBar}>
         <Container>
           <Navbar.Brand>
-            <NavLink to="/" className={styles.navLink}>
+            <NavLink to="/" className={`${styles.navLink} text-uppercase`}>
               Redux Commerce
             </NavLink>
           </Navbar.Brand>

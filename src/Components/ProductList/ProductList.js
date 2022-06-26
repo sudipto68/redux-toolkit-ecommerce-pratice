@@ -10,12 +10,6 @@ import Loader from "../Loader/Loader";
 const ProductList = () => {
   const [limitProducts, setLimitProducts] = useState(true);
 
-  const categories = [
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
-  ];
   const dispatch = useDispatch();
 
   const { products, status } = useSelector((state) => state.products);
@@ -37,7 +31,11 @@ const ProductList = () => {
   return (
     <div className={styles.productListWrapper}>
       <Container>
-        <h2>Our Products</h2>
+        <h3>Shop by Collection</h3>
+        <p>
+          Each season, we collaborate with world class designers to create a
+          collection inspired by natural world.
+        </p>
         <div className={styles.productList}>
           {productList?.map((product) => {
             return <ProductCard key={product.id} product={product} />;

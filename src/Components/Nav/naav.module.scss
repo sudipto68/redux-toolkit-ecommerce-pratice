@@ -1,8 +1,8 @@
 @import "../../styles/global.scss";
 
 .navBar {
-  background-color: $white;
-  min-height: 80px;
+  background-color: #303435;
+  min-height: 60px;
   box-shadow: 0 1px 5px #00000029;
   width: 100%;
   top: 0;
@@ -15,7 +15,7 @@
   font-size: 22px;
   line-height: 24px;
   text-decoration: none;
-  color: $nevyBlue;
+  color: $white;
   font-weight: 600;
 
   &:hover {
@@ -33,7 +33,7 @@
     to right,
     $nevyBlue,
     $nevyBlue 50%,
-    $black 50%
+    $white 50%
   );
   background-size: 200% 100%;
   background-position: -100%;

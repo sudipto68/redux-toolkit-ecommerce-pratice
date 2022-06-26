@@ -1,0 +1,52 @@
+@import "../../styles/global.scss";
+
+.categoryWrapper {
+  display: flex;
+  gap: 70px;
+
+  :global {
+    .category {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(75%);
+      aspect-ratio: 16/9;
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      opacity: 0.9;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: $media-md) {
+  .categoryWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    :global {
+      .category {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: $media-lg) {
+  .categoryWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    :global {
+      .category {
+        width: 300px;
+      }
+    }
+  }
+}
