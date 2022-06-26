@@ -18,6 +18,28 @@
   }
 }
 
+:global {
+  .carousel-indicators {
+    button {
+      height: 10px !important;
+      width: 10px !important;
+      border-radius: 50%;
+    }
+  }
+
+  .carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+
+    .carousel-caption {
+      top: 40% !important;
+      padding-top: 0;
+    }
+  }
+}
+
 @media (max-width: $media-md) {
   .sliderItem {
     height: auto;

@@ -1,18 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./styles/global.scss";
 
-.carousel {
-  .carousel-control-prev,
-  .carousel-control-next {
-    display: none;
-  }
-
-  .carousel-caption {
-    top: 40% !important;
-    padding-top: 0;
-  }
-}
-
 @media (max-width: $media-md) {
   .carousel {
     .carousel-caption {

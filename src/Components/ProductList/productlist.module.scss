@@ -2,6 +2,15 @@
 
 .productListWrapper {
   padding: 50px 0;
+
+  :global {
+    .loadBtn {
+      background-color: $nevyBlue;
+      border: none;
+      color: $white;
+      padding: 10px 25px;
+    }
+  }
 }
 
 .productList {
