@@ -1,10 +1,13 @@
 import React, { memo } from "react";
 import { Button, Card } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 import styles from "./productCard.module.scss";
+import { addToCart } from "../../Redux/features/Cart/CartSlice";
 
 const ProductCard = ({ product }) => {
   const title = product?.title.slice(0, 20);
+  const dispatch = useDispatch();
   return (
     <div>
       <Card
@@ -19,7 +22,12 @@ const ProductCard = ({ product }) => {
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>${product.price}</Card.Text>
-          <Button className={styles.commonBtn}>ADD TO CART</Button>
+          <Button
+            className={styles.commonBtn}
+            onClick={() => dispatch(addToCart(product))}
+          >
+            ADD TO CART
+          </Button>
         </Card.Body>
       </Card>
     </div>

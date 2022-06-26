@@ -1,9 +1,11 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./naav.module.scss";
 
 const Naav = () => {
+  const { cart } = useSelector((state) => state.cart);
   return (
     <div>
       <Navbar expand="lg" className={styles.navBar}>
@@ -43,7 +45,7 @@ const Naav = () => {
                 to="/cart"
                 className={`${styles.navLink} ${styles.menuLink}`}
               >
-                Cart(0)
+                Cart({cart?.length})
               </NavLink>
             </Nav>
           </Navbar.Collapse>
