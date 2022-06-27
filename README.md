@@ -1,4 +1,4 @@
-This is a Demo E-commerce Web App. To show main functionality of an Ecommerce Project. I have used Fake store api as dummy api to get the products.
+This is a Demo E-commerce Web App. To show main functionality of an Ecommerce Project with Redux Toolkit. I have used Fake store api as dummy api to get the products.
 
 Till now:
 
