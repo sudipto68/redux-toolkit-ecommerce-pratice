@@ -38,7 +38,9 @@ const Caterogry = () => {
               <div
                 className="category"
                 style={{
-                  backgroundImage: `url(${Category.img})`,
+                  background: `linear-gradient(rgba(20,20,20, 0.3),rgba(20,20,20, .3)), url(${Category.img}) no-repeat`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
                 <h5 className="text-white px-3">

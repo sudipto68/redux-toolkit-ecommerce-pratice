@@ -20,12 +20,17 @@ export const CartSlice = createSlice({
         const product = { ...action.payload, quantity: 1 };
         state.cart.push(product);
       }
+
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     removeFromCart(state, action) {
-      return state.cart.filter((p) => p.id !== action.payload.id);
+      const updatedCart = state.cart.filter((p) => p.id !== action.payload.id);
+      state.cart = updatedCart;
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     removeAll(state, action) {
       state.cart = [];
+      localStorage.setItem("cart", JSON.stringify(state.cart));
     },
   },
 });

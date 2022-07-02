@@ -6,6 +6,9 @@ import Cart from "./Pages/Cart/Cart";
 import Footer from "./Components/Footer/Footer";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +19,8 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
+      <ToastContainer position="top-right" />
+      <ToastContainer />
     </div>
   );
 }

@@ -29,7 +29,7 @@ const ProductList = () => {
   }
 
   return (
-    <div className={styles.productListWrapper}>
+    <div className={styles.productListWrapper} id="product-list">
       <Container>
         <h3>Shop by Collection</h3>
         <p>

@@ -14,6 +14,17 @@
   color: $black !important;
   padding: 10px 25px !important;
 
+  :global {
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+
   &:hover {
     background-color: $nevyBlue !important;
   }

@@ -6,15 +6,10 @@
 
   :global {
     .category {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: brightness(75%);
       aspect-ratio: 16/9;
       width: 200px;
       height: 200px;
       border-radius: 20px;
-      opacity: 0.9;
       cursor: pointer;
       display: flex;
       justify-content: center;

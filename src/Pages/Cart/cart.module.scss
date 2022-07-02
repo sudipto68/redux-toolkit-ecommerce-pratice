@@ -16,17 +16,31 @@
   }
 
   :global {
-    button {
-      background-color: $nevyBlue;
-      border: none;
-      color: $white;
-      padding: 0 10px;
-    }
-
     .cartBtns {
       align-items: center;
       display: flex;
       gap: 20px;
     }
+
+    .btn-danger {
+      padding: 2px 15px;
+    }
+  }
+}
+
+.cartBtn {
+  background-color: $nevyBlue;
+  border: none;
+  border-radius: 2px;
+  color: $white;
+  padding: 2px 15px;
+}
+
+@media (max-width: $media-md) {
+  .cartCard {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+    text-align: center;
   }
 }

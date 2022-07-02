@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./cart.module.scss";
 import { removeFromCart, removeAll } from "../../Redux/features/Cart/CartSlice";
+import EmptyCart from "../../Components/EmptyCart/EmptyCart";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,9 +13,9 @@ const Cart = () => {
     0
   );
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(products.cart)); //adding cart data to lcoal storaage
-  }, [products.cart]);
+  if (products.cart.length === 0) {
+    return <EmptyCart />;
+  }
 
   return (
     <div className="container" style={{ minHeight: "100vh" }}>
@@ -31,20 +33,39 @@ const Cart = () => {
               <h6>${product.price}</h6>
             </div>
             <div className="cartBtns">
-              <button>+</button>
+              <button className={`${styles.cartBtn} fw-bold`}>+</button>
               <h6>{product.quantity}</h6>
-              <button>-</button>
+              <button className={`${styles.cartBtn} fw-bold`}>-</button>
             </div>
             <div>
               <h6>${product.price * product.quantity}</h6>
-              <button onClick={() => dispatch(removeAll())}>remove</button>
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  dispatch(removeFromCart(product));
+                  toast.warning(
+                    `${product.title.slice(0, 20)} is removed from cart`,
+                    {
+                      autoClose: 2000,
+                    }
+                  );
+                }}
+              >
+                remove
+              </button>
             </div>
           </div>
         );
       })}
 
       <hr />
-      <div className="mb-5 d-flex justify-content-end">
+      <div className="mb-5 d-flex justify-content-between">
+        <button
+          className={styles.cartBtn}
+          onClick={() => dispatch(removeAll())}
+        >
+          Remove All items
+        </button>
         <h5>
           Total Price: <b>${totalPrice.toFixed(2)}</b>
         </h5>
