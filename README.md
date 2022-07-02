@@ -2,7 +2,6 @@ This is a Demo E-commerce Web App. To show main functionality of an Ecommerce Pr
 
 Till now:
 
-
 1. Add product to cart and in the cart page increment and decrements products and also remove products from cart.
 
 I have not implemented any authentication for this project yet. I have used Redux toolkit for the state management purpose.
@@ -13,6 +12,7 @@ I have not implemented any authentication for this project yet. I have used Redu
 2. React Bootstrap
 3. React Router (v6)
 4. Redux Toolkit - for state management
+5. React Toastify
 
 In the project directory, you can run:
 
