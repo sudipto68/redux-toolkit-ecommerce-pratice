@@ -8,6 +8,7 @@ import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import About from "./Pages/About/About";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Naav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

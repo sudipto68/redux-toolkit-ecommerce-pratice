@@ -23,7 +23,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container" style={{ minHeight: "100vh" }}>
+    <div className="container py-5 mt-4" style={{ minHeight: "100vh" }}>
       <h2 className="py-3 text-center">Cart Page</h2>
       {products?.cart?.map((product) => {
         return (

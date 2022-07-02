@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./naav.module.scss";
 
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 const Naav = () => {
   const { cart } = useSelector((state) => state.cart);
   return (
@@ -43,9 +45,12 @@ const Naav = () => {
               </NavLink>
               <NavLink
                 to="/cart"
-                className={`${styles.navLink} ${styles.menuLink}`}
+                className={`${styles.navLink} ${styles.cartIcon}`}
               >
-                Cart({cart?.length})
+                <AiOutlineShoppingCart size={23} />{" "}
+                <div className={styles.cartLength}>
+                  <h6>{cart?.length}</h6>
+                </div>
               </NavLink>
             </Nav>
           </Navbar.Collapse>

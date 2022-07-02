@@ -7,8 +7,11 @@ import ProductCard from "../ProductCard/ProductCard";
 import styles from "./productlist.module.scss";
 import Loader from "../Loader/Loader";
 
+import { BiSearch } from "react-icons/bi";
+
 const ProductList = () => {
   const [limitProducts, setLimitProducts] = useState(true);
+  const [showSearch, setShowSearch] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -31,11 +34,29 @@ const ProductList = () => {
   return (
     <div className={styles.productListWrapper} id="product-list">
       <Container>
-        <h3>Shop by Collection</h3>
-        <p>
-          Each season, we collaborate with world class designers to create a
-          collection inspired by natural world.
-        </p>
+        <div className={styles.searchWrapper}>
+          <div>
+            <h3>Shop by Collection</h3>
+            <p>
+              Each season, we collaborate with world class designers to create a
+              collection inspired by natural world.
+            </p>
+          </div>
+          <div>
+            {showSearch && (
+              <input
+                type="text"
+                className={styles.searchBar}
+                placeholder="Search Product"
+              />
+            )}
+            <BiSearch
+              size={25}
+              onClick={() => setShowSearch(!showSearch)}
+              style={{ cursor: "pointer" }}
+            />
+          </div>
+        </div>
         <div className={styles.productList}>
           {productList?.map((product) => {
             return <ProductCard key={product.id} product={product} />;

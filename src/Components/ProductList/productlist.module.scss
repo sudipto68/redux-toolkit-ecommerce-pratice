@@ -20,6 +20,21 @@
   padding-top: 30px;
 }
 
+.searchBar {
+  border-radius: 5px;
+  border-color: $black;
+  padding: 3px 10px;
+  margin-right: 5px;
+  transition: 0.5s ease-in-out;
+  outline: none;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media (max-width: $media-md) {
   .productList {
     display: flex;
@@ -27,6 +42,10 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+  }
+
+  .searchWrapper {
+    flex-direction: column;
   }
 }
 
