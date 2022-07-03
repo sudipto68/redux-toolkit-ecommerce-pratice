@@ -1,14 +1,15 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Naav from "./Components/Nav/Naav";
 import Home from "./Pages/Home/Home";
 import Cart from "./Pages/Cart/Cart";
 import Footer from "./Components/Footer/Footer";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import ProductDetail from "./Components/ProductDetail/ProductDetail";
+import About from "./Pages/About/About";
 
+import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import About from "./Pages/About/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

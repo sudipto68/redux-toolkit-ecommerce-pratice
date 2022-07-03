@@ -1,15 +1,18 @@
 import React, { memo } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-
-import styles from "./productCard.module.scss";
 import { addToCart } from "../../Redux/features/Cart/CartSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
+import styles from "./productCard.module.scss";
 
 const ProductCard = ({ product }) => {
   const title = product?.title.slice(0, 20);
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -18,6 +21,7 @@ const ProductCard = ({ product }) => {
         className={styles.productCard}
       >
         <Card.Img
+          onClick={() => navigate(`products/${product?.id}`)}
           variant="top"
           src={product?.image}
           className={styles.cardImg}

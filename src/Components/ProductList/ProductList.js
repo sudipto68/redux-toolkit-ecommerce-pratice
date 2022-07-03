@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { STATUS } from "../../constants/Status";
-import { fetchProduct } from "../../Redux/features/Product/ProductSlice";
+import { fetchProducts } from "../../Redux/features/Product/ProductSlice";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./productlist.module.scss";
 import Loader from "../Loader/Loader";
@@ -12,6 +12,7 @@ import { BiSearch } from "react-icons/bi";
 const ProductList = () => {
   const [limitProducts, setLimitProducts] = useState(true);
   const [showSearch, setShowSearch] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const ProductList = () => {
   const productList = limitProducts ? products.slice(0, 6) : products;
 
   useEffect(() => {
-    dispatch(fetchProduct());
+    dispatch(fetchProducts());
   }, []);
 
   if (status === STATUS.LOADING) {
@@ -47,6 +48,8 @@ const ProductList = () => {
               <input
                 type="text"
                 className={styles.searchBar}
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search Product"
               />
             )}
@@ -58,9 +61,13 @@ const ProductList = () => {
           </div>
         </div>
         <div className={styles.productList}>
-          {productList?.map((product) => {
-            return <ProductCard key={product.id} product={product} />;
-          })}
+          {productList
+            ?.filter((item) =>
+              item.title.toLowerCase().includes(searchValue.toLowerCase())
+            )
+            .map((product) => {
+              return <ProductCard key={product.id} product={product} />;
+            })}
         </div>
         <div className="text-center py-5">
           <button

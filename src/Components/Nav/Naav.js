@@ -8,9 +8,27 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Naav = () => {
   const { cart } = useSelector((state) => state.cart);
+
+  const menus = [
+    {
+      name: "Home",
+      id: 1,
+      path: "/",
+    },
+    {
+      name: "About Us",
+      id: 2,
+      path: "/about",
+    },
+    {
+      name: "WishList",
+      id: 3,
+      path: "/wishlist",
+    },
+  ];
   return (
     <div>
-      <Navbar expand="lg" className={styles.navBar}>
+      <Navbar expand="lg" className={`${styles.navBar} fixed-top`}>
         <Container>
           <Navbar.Brand>
             <NavLink to="/" className={`${styles.navLink} text-uppercase`}>
@@ -25,24 +43,16 @@ const Naav = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavLink
-                to="/"
-                className={`${styles.navLink} ${styles.menuLink}`}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/about"
-                className={`${styles.navLink} ${styles.menuLink}`}
-              >
-                About Us
-              </NavLink>
-              <NavLink
-                to="/wishlist"
-                className={`${styles.navLink} ${styles.menuLink}`}
-              >
-                Wishlist
-              </NavLink>
+              {menus.map((menu) => (
+                <NavLink
+                  to={menu.path}
+                  key={menu.id}
+                  className={`${styles.navLink} ${styles.menuLink}`}
+                >
+                  {menu.name}
+                </NavLink>
+              ))}
+
               <NavLink
                 to="/cart"
                 className={`${styles.navLink} ${styles.cartIcon}`}
@@ -61,3 +71,16 @@ const Naav = () => {
 };
 
 export default Naav;
+
+// <NavLink
+//                 to="/about"
+//                 className={`${styles.navLink} ${styles.menuLink}`}
+//               >
+//                 About Us
+//               </NavLink>
+//               <NavLink
+//                 to="/wishlist"
+//                 className={`${styles.navLink} ${styles.menuLink}`}
+//               >
+//                 Wishlist
+//               </NavLink>

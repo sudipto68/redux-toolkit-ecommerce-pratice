@@ -13,14 +13,14 @@ const productSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProduct.pending, (state, action) => {
+      .addCase(fetchProducts.pending, (state, action) => {
         state.status = STATUS.LOADING;
       })
-      .addCase(fetchProduct.fulfilled, (state, action) => {
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         state.products = action.payload;
         state.status = STATUS.IDLE;
       })
-      .addCase(fetchProduct.rejected, (state, action) => {
+      .addCase(fetchProducts.rejected, (state, action) => {
         state.status = STATUS.ERROR;
       });
   },
@@ -28,7 +28,7 @@ const productSlice = createSlice({
 
 //fetching product using build in thunk on toolkit
 
-export const fetchProduct = createAsyncThunk("fetch/prodcuts", async () => {
+export const fetchProducts = createAsyncThunk("fetch/prodcuts", async () => {
   const data = await axios.get(`${base_url}products`).then((res) => res.data);
   return data;
 });

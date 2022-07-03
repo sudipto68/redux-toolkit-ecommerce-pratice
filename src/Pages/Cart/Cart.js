@@ -53,7 +53,7 @@ const Cart = () => {
               </button>
             </div>
             <div>
-              <h6>${product.price * product.quantity}</h6>
+              <h6>${(product.price * product.quantity).toFixed(2)}</h6>
               <button
                 className="btn btn-danger"
                 onClick={() => {
