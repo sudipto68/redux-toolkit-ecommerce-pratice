@@ -1,35 +1,66 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { STATUS } from "../../constants/Status";
-import { fetchProducts } from "../../Redux/features/Product/ProductSlice";
+import React from "react";
+import { Breadcrumb } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/features/Cart/CartSlice";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
+import useFetch from "../Services/useFetch";
+import styles from "./productdetail.module.scss";
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { products, status } = useSelector((state) => state.products);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-
-  const product = products.find((p) => p.id === parseInt(id));
-  console.log(product);
-
-  if (status === STATUS.LOADING) {
+  const { data, error, loading } = useFetch(`/${id}`);
+  if (!error && loading) {
     return <Loader />;
   }
-
-  if (status !== STATUS.LOADING && status === STATUS.ERROR) {
-    return <h2>{status}</h2>;
+  if (!loading && error) {
+    return <h3>{error.message}</h3>;
   }
 
   return (
-    <div className="container my-5 pt-5">
-      <h1>ProductDetail</h1>
+    <div className={`${styles.detailWrapper} container py-4`}>
+      <Breadcrumb>
+        <Breadcrumb.Item onClick={() => navigate("/")}>Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="#">Product</Breadcrumb.Item>
+        <Breadcrumb.Item active>{data?.title}</Breadcrumb.Item>
+      </Breadcrumb>
+      <h1>{data?.title}</h1>
+      <hr className="mb-4" />
+      <div className={styles.mainDetailWrapper}>
+        <div className={styles.imageWrapper}>
+          <img
+            src={data?.image}
+            alt="product-img"
+            style={{ maxWidth: "300px", maxHeight: "300px" }}
+          />
+        </div>
+        <div className="pt-3">
+          <h4>{data?.title}</h4>
+          <h6 className="text-success">
+            {data?.rating.count > 1 && "In Stock"}
+          </h6>
+          <h6>Category: {data?.category}</h6>
+          <p className="py-1">{data?.description}</p>
+          <h5>Price: ${data?.price}</h5>
+          <button
+            className="btn btn-primary mt-2"
+            onClick={() => {
+              dispatch(addToCart(data));
+              toast.success(`${data?.title.slice(0, 20)} is added to cart`, {
+                autoClose: 2000,
+              });
+            }}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ProductDetail;
+export default React.memo(ProductDetail);

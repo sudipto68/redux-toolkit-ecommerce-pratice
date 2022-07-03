@@ -1,1 +1,57 @@
 @import "../../styles/global.scss";
+
+.detailWrapper {
+  margin-top: 80px;
+  min-height: 100vh;
+}
+
+.mainDetailWrapper {
+  display: flex;
+  gap: 50px;
+
+  :global {
+    .btn {
+      background-color: $skyBlue;
+      border: none;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: $nevyBlue;
+      }
+    }
+  }
+}
+
+.imageWrapper {
+  :global {
+    img {
+      transition: 0.4s ease-in;
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.4s ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-width: $media-md) {
+  .detailWrapper {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .mainDetailWrapper {
+    flex-direction: column;
+    padding: 0 25px 30px;
+    text-align: left;
+
+    :global {
+      h4,
+      h5,
+      h6,
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
