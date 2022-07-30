@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
 import useFetch from "../Services/useFetch";
 import styles from "./productdetail.module.scss";
+import ProductSlider from "../Slider/ProductSlider";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -21,11 +22,18 @@ const ProductDetail = () => {
     return <h3>{error.message}</h3>;
   }
 
+  //add product to cart handler
+  const productHandler = () => {
+    dispatch(addToCart(data));
+    toast.success(`${data?.title.slice(0, 20)} is added to cart`, {
+      autoClose: 1000,
+    });
+  };
+
   return (
     <div className={`${styles.detailWrapper} container py-4`}>
       <Breadcrumb>
         <Breadcrumb.Item onClick={() => navigate("/")}>Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Product</Breadcrumb.Item>
         <Breadcrumb.Item active>{data?.title}</Breadcrumb.Item>
       </Breadcrumb>
       <h1>{data?.title}</h1>
@@ -46,18 +54,15 @@ const ProductDetail = () => {
           <h6>Category: {data?.category}</h6>
           <p className="py-1">{data?.description}</p>
           <h5>Price: ${data?.price}</h5>
-          <button
-            className="btn btn-primary mt-2"
-            onClick={() => {
-              dispatch(addToCart(data));
-              toast.success(`${data?.title.slice(0, 20)} is added to cart`, {
-                autoClose: 2000,
-              });
-            }}
-          >
+          <button className="btn btn-primary mt-2" onClick={productHandler}>
             Add to Cart
           </button>
         </div>
+      </div>
+
+      <div className={styles.productSliderWrapper}>
+        <h4 className="py-2">Products you might also like</h4>
+        <ProductSlider category={data?.category} />
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import styles from "./slider.module.scss";
 
 import Carousel from "react-bootstrap/Carousel";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const Slider = () => {
   const sliderItems = [

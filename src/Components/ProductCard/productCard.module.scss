@@ -1,6 +1,7 @@
 @import "../../styles/global.scss";
 
 .cardImg {
+  cursor: pointer;
   max-height: 150px;
   max-width: 150px;
   margin: 0 auto;
@@ -8,7 +9,6 @@
 }
 
 .productCard {
-  cursor: pointer;
   position: relative;
   min-height: 300px;
   transition: all 0.5s ease-out;

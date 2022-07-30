@@ -13,10 +13,28 @@ import { toast } from "react-toastify";
 const Cart = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart);
+
+  //calculate total price
   const totalPrice = products.cart.reduce(
     (a, c) => a + c.quantity * c.price,
     0
   );
+
+  //remove product handler
+  const removeProductHandler = (product) => {
+    dispatch(removeFromCart(product));
+    toast.warning(`${product.title.slice(0, 20)} is removed from cart`, {
+      autoClose: 1000,
+    });
+  };
+
+  //remove all product handler
+  const removeAllProduct = () => {
+    dispatch(removeAll());
+    toast.error("Your Cart is now empty", {
+      autoClose: 1000,
+    });
+  };
 
   if (products.cart.length === 0) {
     return <EmptyCart />;
@@ -57,13 +75,7 @@ const Cart = () => {
               <button
                 className="btn btn-danger"
                 onClick={() => {
-                  dispatch(removeFromCart(product));
-                  toast.warning(
-                    `${product.title.slice(0, 20)} is removed from cart`,
-                    {
-                      autoClose: 2000,
-                    }
-                  );
+                  removeProductHandler(product);
                 }}
               >
                 remove
@@ -75,15 +87,7 @@ const Cart = () => {
 
       <hr />
       <div className="mb-5 d-flex justify-content-between">
-        <button
-          className={styles.cartBtn}
-          onClick={() => {
-            dispatch(removeAll());
-            toast.error("Your Cart is now empty", {
-              autoClose: 2000,
-            });
-          }}
-        >
+        <button className={styles.cartBtn} onClick={removeAllProduct}>
           Remove All items
         </button>
         <h5>
