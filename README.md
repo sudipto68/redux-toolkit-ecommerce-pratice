@@ -3,6 +3,7 @@ This is a Demo E-commerce Web App. To show main functionality of an Ecommerce Pr
 Till now:
 1. User Can search or browse product and see the product detail page. 
 2. Add product to cart and in the cart page increment and decrements products and also remove products from cart.
+3. User can see suggested product on each product's detail page.
 
 I have not implemented any authentication for this project yet. I have used Redux toolkit for the state management purpose.
 
@@ -13,6 +14,7 @@ I have not implemented any authentication for this project yet. I have used Redu
 3. React Router (v6)
 4. Redux Toolkit - for state management
 5. React Toastify
+6. React elastic carousel
 
 In the project directory, you can run:
 
