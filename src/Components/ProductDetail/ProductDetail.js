@@ -5,7 +5,7 @@ import { addToCart } from "../../Redux/features/Cart/CartSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
-import useFetch from "../Services/useFetch";
+import useFetch from "../../Services/useFetch";
 import styles from "./productdetail.module.scss";
 import ProductSlider from "../Slider/ProductSlider";
 

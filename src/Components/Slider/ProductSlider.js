@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 
 import Loader from "../Loader/Loader";
-import useFetch from "../Services/useFetch";
+import useFetch from "../../Services/useFetch";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductSlider = ({ category }) => {
