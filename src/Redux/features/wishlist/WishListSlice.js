@@ -13,7 +13,10 @@ export const wishListSlice = createSlice({
       localStorage.setItem("wishlist", JSON.stringify(state.wishList));
     },
     removeFromWishList(state, action) {
-      state.wishList.pop(action.payload);
+      const newWishlist = state.wishList.filter(
+        (product) => product?.id !== action.payload.id
+      );
+      state.wishList = newWishlist;
       localStorage.setItem("wishlist", JSON.stringify(state.wishList));
     },
     removeAll(state) {

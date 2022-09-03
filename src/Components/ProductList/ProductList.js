@@ -10,15 +10,12 @@ import Loader from "../Loader/Loader";
 import { BiSearch } from "react-icons/bi";
 
 const ProductList = () => {
-  const [limitProducts, setLimitProducts] = useState(true);
   const [showSearch, setShowSearch] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   const dispatch = useDispatch();
 
   const { products, status } = useSelector((state) => state.products);
-
-  const productList = limitProducts ? products.slice(0, 6) : products;
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -61,21 +58,13 @@ const ProductList = () => {
           </div>
         </div>
         <div className={styles.productList}>
-          {productList
+          {products
             ?.filter((item) =>
               item.title.toLowerCase().includes(searchValue.toLowerCase())
             )
-            .map((product) => {
-              return <ProductCard key={product.id} product={product} />;
+            ?.map((product) => {
+              return <ProductCard key={product?.id} product={product} />;
             })}
-        </div>
-        <div className="text-center py-5">
-          <button
-            className="btn loadBtn text-center"
-            onClick={() => setLimitProducts(!limitProducts)}
-          >
-            {limitProducts ? "Load More Products" : "Load Limited Products"}
-          </button>
         </div>
       </Container>
     </div>

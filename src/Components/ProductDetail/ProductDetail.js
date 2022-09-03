@@ -19,7 +19,7 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => state.wishlist.wishList).some(
-    (p) => p.id.toString() === id
+    (p) => p?.id?.toString() === id
   );
 
   const { data, error, loading } = useFetch(`/${id}`);
@@ -91,7 +91,7 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
-
+      <hr className="mt-5" />
       <div className={styles.productSliderWrapper}>
         <h4 className="py-2">Products you might also like</h4>
         <ProductSlider category={data?.category} />

@@ -43,7 +43,7 @@ const ProductSlider = ({ category }) => {
   }
 
   return (
-    <div className="container py-2">
+    <div className="container py-3">
       <Carousel itemsToShow={size <= 767 ? 1 : 3}>
         {data?.map((product) => {
           return <ProductCard product={product} key={product.id} />;

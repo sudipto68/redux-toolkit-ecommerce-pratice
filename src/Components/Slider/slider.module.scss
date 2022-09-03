@@ -32,6 +32,12 @@
 }
 
 :global {
+  .rec-carousel-item {
+    .card {
+      margin: 20px 0 !important;
+    }
+  }
+
   .carousel-indicators {
     button {
       height: 10px !important;
@@ -77,6 +83,12 @@
     .carousel-indicators {
       button {
         display: none;
+      }
+    }
+
+    .rec-carousel-item {
+      .card {
+        margin: 0 !important;
       }
     }
   }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./wishlist.module.scss";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import { removeAll } from "../../Redux/features/wishlist/WishListSlice";
+import noitem from "../../assests/noitem.jpg";
 
 const WishList = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const WishList = () => {
         return <ProductCard key={product?.id} product={product} />;
       })
     ) : (
-      <p style={{ fontSize: "24px" }}>You have no products in Wishlist</p>
+      <div className="text-center">
+        <img src={noitem} alt="wishlist empty" />
+      </div>
     );
 
   return (
@@ -21,7 +24,9 @@ const WishList = () => {
       <div className={styles.wishListWrapper}>
         <h2 className="text-center py-3">My WishList</h2>
         <div
-          className={`d-flex justify-content-center align-items-center ${styles.wishListItemWrapper}`}
+          className={
+            products?.wishList?.length > 0 ? styles.wishListItemWrapper : ""
+          }
         >
           {content}
         </div>
