@@ -1,5 +1,9 @@
 @import "../../styles/global.scss";
 
+.container {
+  padding-bottom: 70px;
+}
+
 .emptyCart {
   display: flex;
   flex-direction: column;

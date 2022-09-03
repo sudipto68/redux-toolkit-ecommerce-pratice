@@ -16,14 +16,16 @@ function App() {
   return (
     <div className="App">
       <Naav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <div className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </div>
       <Footer />
       <ToastContainer position="top-right" />
       <ToastContainer />

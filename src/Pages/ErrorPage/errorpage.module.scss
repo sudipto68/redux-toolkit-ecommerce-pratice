@@ -1,9 +1,5 @@
 @import "../../styles/global.scss";
 
-.errorPage {
-  min-height: 100vh;
-}
-
 @media (max-width: $media-md) {
   .errorPage {
     :global {

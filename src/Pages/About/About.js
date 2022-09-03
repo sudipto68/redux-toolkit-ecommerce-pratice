@@ -1,15 +1,13 @@
 import React from "react";
+import styles from "./about.module.scss";
 import { Container, Row } from "react-bootstrap";
 
 const About = () => {
   return (
-    <div
-      className="py-4 d-flex justify-content-center align-items-center"
-      style={{ minHeight: "100vh", textAlign: "center" }}
-    >
-      <Container>
+    <div>
+      <Container className={styles.container}>
         <Row>
-          <h1 className="py-4">About Us</h1>
+          <h1 className="py-3 text-center">About Us</h1>
           <p>
             Redux Commerce Limited is a leading Ecommerce company established in
             June 2022. Main focus of this company is to develop product as a

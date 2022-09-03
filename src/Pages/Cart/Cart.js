@@ -41,13 +41,13 @@ const Cart = () => {
   }
 
   return (
-    <div className="container py-5 mt-4" style={{ minHeight: "100vh" }}>
+    <div className="container py-5 mt-4">
       <h2 className="py-3 text-center">Cart Page</h2>
       {products?.cart?.map((product) => {
         return (
           <div key={product.id} className={styles.cartCard}>
             <div>
-              <img src={product.image} alt="product" width="40px" />
+              <img src={product.image} alt="product" width="50px" />
             </div>
             <div>
               <h5 style={{ maxWidth: "180px" }}>

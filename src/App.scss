@@ -2,16 +2,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap");
 @import "./styles/global.scss";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-html {
+.app {
   position: relative;
-  min-height: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: $media-md) {

@@ -6,10 +6,10 @@ import styles from "./emptycart.module.scss";
 const EmptyCart = () => {
   const navigate = useNavigate();
   return (
-    <div className="container py-2">
+    <div className={styles.container}>
       <div className={styles.emptyCart}>
         <img src={cart} alt="empty-cart-img" />
-        <button className="btn btn-primary mb-2" onClick={() => navigate("/")}>
+        <button className="btn btn-primary" onClick={() => navigate("/")}>
           Go Back to Add Some Products
         </button>
       </div>
