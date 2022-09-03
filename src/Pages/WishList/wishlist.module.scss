@@ -1,0 +1,23 @@
+@import "../../styles/global.scss";
+
+.wishListWrapper {
+  margin: 80px 0;
+  min-height: 100vh;
+}
+
+.wishListItemWrapper {
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.wishListBtn {
+  background-color: $nevyBlue !important;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  color: $white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}

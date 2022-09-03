@@ -15,7 +15,7 @@
 
 .productList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33.33%);
   gap: 40px;
   padding-top: 30px;
 }
@@ -55,5 +55,10 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+  }
+
+  .searchWrapper {
+    flex-direction: column;
+    align-items: start;
   }
 }

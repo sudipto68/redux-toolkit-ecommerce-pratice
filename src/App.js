@@ -10,6 +10,7 @@ import About from "./Pages/About/About";
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import WishList from "./Pages/WishList/WishList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

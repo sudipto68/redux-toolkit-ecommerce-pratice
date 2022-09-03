@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 
 import Loader from "../Loader/Loader";
@@ -6,23 +6,33 @@ import useFetch from "../../Services/useFetch";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductSlider = ({ category }) => {
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  //choose the screen size
-  const handleResize = () => {
-    if (window.innerWidth < 720) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
+  // //choose the screen size
+  // const handleResize = () => {
+  //   if (window.innerWidth <= 767) {
+  //     setIsMobile(true);
+  //   } else {
+  //     setIsMobile(false);
+  //   }
+  // };
+
+  // // create an event listener
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize);
+  // });
+
+  const [size, setSize] = useState("");
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize(window.innerWidth);
     }
-  };
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
-  // create an event listener
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  });
-
-  //fetch slider data
+  //fetch slider data according to category
   const { data, error, loading } = useFetch(`/category/${category}`);
 
   if (!error && loading) {
@@ -34,7 +44,7 @@ const ProductSlider = ({ category }) => {
 
   return (
     <div className="container py-2">
-      <Carousel itemsToShow={isMobile ? 1 : 3}>
+      <Carousel itemsToShow={size <= 767 ? 1 : 3}>
         {data?.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}

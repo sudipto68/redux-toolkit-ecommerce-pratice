@@ -1,7 +1,11 @@
 import React from "react";
 import { Breadcrumb } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Redux/features/Cart/CartSlice";
+import {
+  addToWishList,
+  removeFromWishList,
+} from "../../Redux/features/wishlist/WishListSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
@@ -13,6 +17,10 @@ const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const state = useSelector((state) => state.wishlist.wishList).some(
+    (p) => p.id.toString() === id
+  );
 
   const { data, error, loading } = useFetch(`/${id}`);
   if (!error && loading) {
@@ -28,6 +36,24 @@ const ProductDetail = () => {
     toast.success(`${data?.title.slice(0, 20)} is added to cart`, {
       autoClose: 1000,
     });
+  };
+
+  //Wishlist button handler
+  const wishListHandler = () => {
+    if (state) {
+      dispatch(removeFromWishList(data));
+      toast.warning(
+        `${data?.title.slice(0, 20)} is remove from your wishlist`,
+        {
+          autoClose: 1000,
+        }
+      );
+    } else {
+      dispatch(addToWishList(data));
+      toast.success(`${data?.title.slice(0, 20)} is added to your wishlist`, {
+        autoClose: 1000,
+      });
+    }
   };
 
   return (
@@ -56,6 +82,12 @@ const ProductDetail = () => {
           <h5>Price: ${data?.price}</h5>
           <button className="btn btn-primary mt-2" onClick={productHandler}>
             Add to Cart
+          </button>
+          <button
+            className="btn btn-primary mt-2 ms-3"
+            onClick={wishListHandler}
+          >
+            {state ? "Remove from Wishlist" : "Add to Wishlist"}
           </button>
         </div>
       </div>

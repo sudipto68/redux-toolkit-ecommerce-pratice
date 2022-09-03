@@ -5,6 +5,7 @@
   object-fit: cover;
   img {
     object-fit: cover;
+    aspect-ratio: 16/9;
   }
 }
 
@@ -87,11 +88,12 @@
 
     img {
       min-height: 350px;
+      aspect-ratio: 16/9;
     }
 
     :global {
       .carousel-caption {
-        top: 50% !important;
+        top: 100px !important;
       }
     }
   }
