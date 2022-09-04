@@ -4,6 +4,7 @@ Till now:
 1. User Can search or browse product and see the product detail page. 
 2. Add product to cart and in the cart page increment and decrements products and also remove products from cart.
 3. User can see suggested product on each product's detail page.
+4. Wishlist functionality based on local storage.
 
 I have not implemented any authentication for this project yet. I have used Redux toolkit for the state management purpose.
 
