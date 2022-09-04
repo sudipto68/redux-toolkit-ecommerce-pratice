@@ -7,6 +7,10 @@
 
 @media (max-width: $media-md) {
   .container {
-    padding-top: 10px;
+    padding-top: 30px;
+
+    p {
+      text-align: left;
+    }
   }
 }
