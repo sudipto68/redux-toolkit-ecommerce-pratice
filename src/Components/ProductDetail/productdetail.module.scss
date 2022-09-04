@@ -68,8 +68,12 @@
     text-align: left;
   }
 
-  .removeFromWishListBtn {
-    margin-left: 0 !important;
+  .mainDetailWrapper {
+    :global {
+      .btn {
+        font-size: 15px;
+      }
+    }
   }
 
   .mainDetailWrapper {

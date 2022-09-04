@@ -84,9 +84,7 @@ const ProductDetail = () => {
             Add to Cart
           </button>
           <button
-            className={`btn btn-primary mt-2 ms-2 ${
-              state ? styles.removeFromWishListBtn : ""
-            }`}
+            className={`btn btn-primary mt-2 ms-2`}
             onClick={wishListHandler}
           >
             {state ? "Remove from Wishlist" : "Add to Wishlist"}
