@@ -20,7 +20,7 @@ const WishList = () => {
     );
 
   return (
-    <div className={styles.container}>
+    <div className={`container`}>
       <div className={styles.wishListWrapper}>
         <h2 className="text-center py-3">My WishList</h2>
         <div
