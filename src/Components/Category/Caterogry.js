@@ -1,8 +1,8 @@
 import React from "react";
-import cat1 from "../../assests/cat1.jpg";
-import cat2 from "../../assests/cat2.jpg";
-import cat3 from "../../assests/cat3.jpg";
-import cat4 from "../../assests/cat4.jpg";
+import cat1 from "../../assests/cat1.webp";
+import cat2 from "../../assests/cat2.webp";
+import cat3 from "../../assests/cat3.webp";
+import cat4 from "../../assests/cat4.webp";
 import styles from "./category.module.scss";
 
 const Caterogry = () => {

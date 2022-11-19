@@ -1,7 +1,7 @@
 import React from "react";
-import img1 from "../../assests/img1.jpg";
-import img2 from "../../assests/img2.jpg";
-import img3 from "../../assests/img3.jpg";
+import img1 from "../../assests/img1.webp";
+import img2 from "../../assests/img2.webp";
+import img3 from "../../assests/img3.webp";
 import styles from "./slider.module.scss";
 
 import Carousel from "react-bootstrap/Carousel";
