@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./naav.module.scss";
 
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShopping } from "react-icons/ai";
+import { AiOutlineStar } from "react-icons/ai";
+import Image from "react-bootstrap/Image";
 
 const Naav = () => {
   const { cart } = useSelector((state) => state.cart);
@@ -21,7 +23,12 @@ const Naav = () => {
       path: "/about",
     },
     {
-      name: "WishList",
+      // name: "WishList",
+      name: (
+        <>
+          WishList <AiOutlineStar size={23} style={{ marginBottom: "5px" }} />
+        </>
+      ),
       id: 3,
       path: "/wishlist",
     },
@@ -32,7 +39,12 @@ const Naav = () => {
         <Container>
           <Navbar.Brand>
             <NavLink to="/" className={`${styles.navLink} text-uppercase`}>
-              Redux Commerce
+              {/* <img src="https://www.freepnglogos.com/uploads/chanel-logo-vector-19.jpg" alt="abc" width="500" height="600"> */}
+              <Image
+                src="https://freepngimg.com/thumb/chanel/61032-fashion-ai-collection-perfume-cruise-logo-chanel-thumb.png"
+                style={{ width: "30px", height: "30px", marginBottom: "2px" }}
+              />
+              <b>CHANEL</b>
             </NavLink>
           </Navbar.Brand>
 
@@ -57,7 +69,7 @@ const Naav = () => {
                 to="/cart"
                 className={`${styles.navLink} ${styles.cartIcon}`}
               >
-                <AiOutlineShoppingCart size={23} />{" "}
+                <AiOutlineShopping size={23} />{" "}
                 <div className={styles.cartLength}>
                   <h6>{cart?.length}</h6>
                 </div>

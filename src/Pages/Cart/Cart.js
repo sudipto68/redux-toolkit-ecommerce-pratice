@@ -9,6 +9,9 @@ import {
 } from "../../Redux/features/Cart/CartSlice";
 import EmptyCart from "../../Components/EmptyCart/EmptyCart";
 import { toast } from "react-toastify";
+import { AiOutlinePlusSquare } from "react-icons/ai";
+import { AiOutlineMinusSquare } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -56,30 +59,50 @@ const Cart = () => {
               <h6>${product.price}</h6>
             </div>
             <div className="cartBtns">
-              <button
+              {/* <button
                 className={`${styles.cartBtn} fw-bold`}
                 onClick={() => dispatch(incrementProduct(product))}
               >
                 +
-              </button>
+              </button> */}
+              <AiOutlinePlusSquare
+                onClick={() => dispatch(incrementProduct(product))}
+              />
               <h6>{product.quantity}</h6>
-              <button
+              {/* <button
                 className={`${styles.cartBtn} fw-bold`}
                 onClick={() => dispatch(reduceProduct(product))}
               >
                 -
-              </button>
+              </button> */}
+              <AiOutlineMinusSquare
+                onClick={() => dispatch(reduceProduct(product))}
+              />
             </div>
             <div>
-              <h6>${(product.price * product.quantity).toFixed(2)}</h6>
-              <button
+              <h6 style={{ marginRight: "50px" }}>
+                ${(product.price * product.quantity).toFixed(2)}{" "}
+                <span style={{ marginLeft: "50px" }}>
+                  <AiOutlineDelete
+                    onClick={() => {
+                      removeProductHandler(product);
+                    }}
+                  />
+                </span>
+              </h6>
+              {/* <button
                 className="btn btn-danger"
                 onClick={() => {
                   removeProductHandler(product);
                 }}
               >
                 remove
-              </button>
+              </button> */}
+              {/* <AiOutlineDelete
+                onClick={() => {
+                  removeProductHandler(product);
+                }}
+              /> */}
             </div>
           </div>
         );
@@ -88,7 +111,7 @@ const Cart = () => {
       <hr />
       <div className="mb-5 d-flex justify-content-between">
         <button className={styles.cartBtn} onClick={removeAllProduct}>
-          Remove All items
+          Remove all items
         </button>
         <h5>
           Total Price: <b>${totalPrice.toFixed(2)}</b>

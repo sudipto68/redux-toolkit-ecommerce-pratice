@@ -6,6 +6,7 @@ import { fetchProducts } from "../../Redux/features/Product/ProductSlice";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./productlist.module.scss";
 import Loader from "../Loader/Loader";
+import Button from "react-bootstrap/Button";
 
 import { BiSearch } from "react-icons/bi";
 
@@ -34,7 +35,7 @@ const ProductList = () => {
       <Container>
         <div className={styles.searchWrapper}>
           <div>
-            <h3>Shop by Collection</h3>
+            <h3>Collection</h3>
             <p>
               Each season, we collaborate with world class designers to create a
               collection inspired by natural world.
@@ -66,6 +67,19 @@ const ProductList = () => {
               return <ProductCard key={product?.id} product={product} />;
             })}
         </div>
+        <Button
+          variant="secondary"
+          style={{
+            backgroundColor: "white",
+            color: "black",
+            border: "1px solid",
+            marginTop: "20px",
+            marginLeft: "43%",
+            fontSize: "12px",
+          }}
+        >
+          VIEW MORE
+        </Button>{" "}
       </Container>
     </div>
   );
