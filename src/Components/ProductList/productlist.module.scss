@@ -13,6 +13,11 @@
   }
 }
 
+.categorySelector {
+  max-width: 290px;
+  margin-left: auto;
+}
+
 .productList {
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
@@ -46,6 +51,12 @@
 
   .searchWrapper {
     flex-direction: column;
+  }
+
+  .categorySelector {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
   }
 }
 

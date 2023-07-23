@@ -3,6 +3,10 @@ import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { STATUS } from "../../constants/Status";
 import { fetchProducts } from "../../Redux/features/Product/ProductSlice";
+import {
+  setCategory,
+  setSearchProduct,
+} from "../../Redux/features/ProductFilter/FilterSlice";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./productlist.module.scss";
 import Loader from "../Loader/Loader";
@@ -11,15 +15,58 @@ import { BiSearch } from "react-icons/bi";
 
 const ProductList = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
 
   const dispatch = useDispatch();
 
   const { products, status } = useSelector((state) => state.products);
+  const { searchedProduct, category } = useSelector(
+    (state) => state.productFilter
+  );
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+
+  let productsData;
+
+  const categories = [
+    {
+      value: "all",
+      name: "Find Product By Category",
+    },
+    {
+      value: "jewelery",
+      name: "Jewelery",
+    },
+    {
+      value: "electronics",
+      name: "Electronics",
+    },
+    {
+      value: "men's clothing",
+      name: "Men's Clothing",
+    },
+    {
+      value: "women's clothing",
+      name: "Women's Clothing",
+    },
+  ];
+
+  if (searchedProduct) {
+    productsData = products?.filter((item) =>
+      item.title.toLowerCase().includes(searchedProduct.toLowerCase())
+    );
+  } else if (category.length > 0) {
+    if (category.toLowerCase() === "all") {
+      productsData = products;
+    } else {
+      productsData = products?.filter((item) =>
+        item.category.toLowerCase().includes(category.toLowerCase())
+      );
+    }
+  } else {
+    productsData = products;
+  }
 
   if (status === STATUS.LOADING) {
     return <Loader />;
@@ -45,8 +92,8 @@ const ProductList = () => {
               <input
                 type="text"
                 className={styles.searchBar}
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
+                value={searchedProduct}
+                onChange={(e) => dispatch(setSearchProduct(e.target.value))}
                 placeholder="Search Product"
               />
             )}
@@ -57,14 +104,24 @@ const ProductList = () => {
             />
           </div>
         </div>
+        <div className={styles.categorySelector}>
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            defaultValue={category}
+            onChange={(e) => dispatch(setCategory(e.target.value))}
+          >
+            {categories.map((option) => (
+              <option value={option.value} key={option.value}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className={styles.productList}>
-          {products
-            ?.filter((item) =>
-              item.title.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            ?.map((product) => {
-              return <ProductCard key={product?.id} product={product} />;
-            })}
+          {productsData?.map((product) => {
+            return <ProductCard key={product?.id} product={product} />;
+          })}
         </div>
       </Container>
     </div>
