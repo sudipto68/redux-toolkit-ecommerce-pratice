@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const base_url = "https://fakestoreapi.com/products";
+const base_url = "https://fakestoreapi.com/products/";
 
 export default function useFetch(url) {
   const [data, setData] = useState(null);

@@ -1,9 +1,5 @@
 import React from "react";
-import img1 from "../../assests/img1.webp";
-import img2 from "../../assests/img2.webp";
-import img3 from "../../assests/img3.webp";
 import styles from "./slider.module.scss";
-
 import Carousel from "react-bootstrap/Carousel";
 import { Button } from "react-bootstrap";
 
@@ -11,18 +7,18 @@ const Slider = () => {
   const sliderItems = [
     {
       id: 1,
-      caption: "All the Lastest Product In One Place",
-      img: img1,
+      caption: "FRAGRANCE",
+      img: "https://puls-img.chanel.com/c_limit,w_3200/q_auto:best,dpr_auto/1682427316836-herojpg_1600x2880.jpg",
     },
     {
       id: 2,
-      caption: "Grab the Lastest Product",
-      img: img2,
+      caption: "FRAGRANCE",
+      img: "https://puls-img.chanel.com/c_limit,w_1920/q_auto:best,dpr_auto/1682427316836-behindthescenes6jpg_944x1742.jpg",
     },
     {
       id: 3,
-      caption: "Find All Your Needs In One Place",
-      img: img3,
+      caption: "FRAGRANCE",
+      img: "https://puls-img.chanel.com/c_limit,w_1920/q_auto:best,dpr_auto/1682427316894-behindthescenes1jpg_944x1740.jpg",
     },
   ];
   return (
@@ -36,16 +32,13 @@ const Slider = () => {
                 <h1
                   style={{
                     color: "aliceblue",
-                    fontSize: "48px",
-                    lineHeight: "48px",
+                    fontSize: "18px",
+                    lineHeight: "18px",
                   }}
                 >
                   {item.caption}
                 </h1>
-                <p>
-                  A single place for all your products. Discover more products
-                  on our products secion
-                </p>
+                <p style={{ fontSize: "50px" }}>BLEU DE CHANEL</p>
                 <Button className={styles.sliderBtn}>
                   <a href="#product-list">Discover More</a>
                 </Button>

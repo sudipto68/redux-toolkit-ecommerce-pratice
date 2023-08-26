@@ -21,14 +21,15 @@
 }
 
 .commonBtn {
-  background-color: $nevyBlue !important;
+  background-color: $white !important;
   border: none !important;
-  color: $white !important;
+  color: $black !important;
   position: absolute;
   bottom: 20px;
   right: 85px;
 
   &:hover {
-    background-color: $skyBlue !important;
+    background-color: #2C333E !important;
+    color: white !important;
   }
 }

@@ -1,21 +1,28 @@
 @import "../../styles/global.scss";
 
 .navBar {
-  background-color: #303435;
+  // background-color: #303435;
+  // background-color: #F3E5CA;
+  background-color: #E5E5E5;
+  ;
   min-height: 70px;
   box-shadow: 0 1px 5px #00000029;
   width: 100%;
+  border-top: 10px solid black;
+  border-bottom: 1px solid grey;
 }
 
 .navLink {
-  font-size: 22px;
+  font-size: 30px;
   line-height: 24px;
   text-decoration: none;
-  color: $white;
+  color: $black;
   font-weight: 600;
+  
 
   &:hover {
     color: $black;
+    border-bottom: 1px solid black;
   }
 }
 
@@ -25,10 +32,16 @@
   font-weight: 400;
   line-height: 22px;
   margin-left: 30px;
+  // background-image: linear-gradient(
+  //   to right,
+  //   $nevyBlue,
+  //   $nevyBlue 50%,
+  //   $white 50%
+  // );
   background-image: linear-gradient(
     to right,
-    $nevyBlue,
-    $nevyBlue 50%,
+    $black,
+    $black 50%,
     $white 50%
   );
   background-size: 200% 100%;

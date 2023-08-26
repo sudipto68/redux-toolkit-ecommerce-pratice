@@ -1,7 +1,7 @@
 @import "../../styles//global.scss";
 
 .sliderItem {
-  height: 450px;
+  height: 650px;
   object-fit: cover;
   img {
     object-fit: cover;
@@ -27,7 +27,7 @@
   }
 
   &:hover {
-    background-color: $nevyBlue !important;
+    background-color: #ADAAA8 !important;
   }
 }
 

@@ -1,16 +1,26 @@
 @import "../../styles/global.scss";
+@import '~mdb-ui-kit/css/mdb.min.css';
 
 .footer {
-  background-color: #303435;
+  // background-color: #303435;
+  // background-color: #E5E5E5;
+  background-color: black;
   color: $white;
-  min-height: 60px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  position: absolute;
-  left: 0;
-  right: 0;
   width: 100%;
 }
+
+.text-light {
+  text-decoration: none;
+}
+
+.text-light:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
